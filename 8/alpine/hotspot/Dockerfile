@@ -1,7 +1,7 @@
 # FIXME(oleg_nenashev): This is not an official AdoptOpenJDK Docker Image.
 # There is no official Alpine images at the moment.
 # Needs upgrade when/if there is an official alpine image.
-FROM adoptopenjdk/openjdk8:jdk8u312-b07-alpine
+FROM adoptopenjdk/openjdk8:jdk8u322-b06-alpine
 
 RUN apk add --no-cache \
   bash \
@@ -19,7 +19,7 @@ ENV LANG C.UTF-8
 
 ARG TARGETARCH
 ARG COMMIT_SHA
-ARG GIT_LFS_VERSION=3.0.2
+ARG GIT_LFS_VERSION=3.1.4
 
 # required for multi-arch support, revert to package cloud after:
 # https://github.com/git-lfs/git-lfs/issues/4546

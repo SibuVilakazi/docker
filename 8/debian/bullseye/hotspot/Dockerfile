@@ -1,6 +1,6 @@
-FROM eclipse-temurin:8u312-b07-jdk-focal as jre-build
+FROM eclipse-temurin:8u322-b06-jdk-focal as jre-build
 
-FROM debian:bullseye-20211220
+FROM debian:bullseye-20220418
 
 RUN apt-get update && \
     apt-get install -y git curl gpg unzip libfreetype6 libfontconfig1 procps wget && \
@@ -10,7 +10,7 @@ ENV LANG C.UTF-8
 
 ARG TARGETARCH
 ARG COMMIT_SHA
-ARG GIT_LFS_VERSION=3.0.2
+ARG GIT_LFS_VERSION=3.1.4
 
 # required for multi-arch support, revert to package cloud after:
 # https://github.com/git-lfs/git-lfs/issues/4546

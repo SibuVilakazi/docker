@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11.0.13_8-jdk-focal as jre-build
+FROM eclipse-temurin:11.0.15_10-jdk-focal as jre-build
 
 RUN jlink \
          --add-modules ALL-MODULE-PATH \
@@ -8,7 +8,7 @@ RUN jlink \
          --compress=2 \
          --output /javaruntime
 
-FROM debian:bullseye-20211220-slim
+FROM debian:bullseye-20220418-slim
 
 RUN apt-get update && \
     apt-get install -y git curl gpg unzip libfreetype6 libfontconfig1 && \
@@ -18,7 +18,7 @@ ENV LANG C.UTF-8
 
 ARG TARGETARCH
 ARG COMMIT_SHA
-ARG GIT_LFS_VERSION=3.0.2
+ARG GIT_LFS_VERSION=3.1.4
 
 # required for multi-arch support, revert to package cloud after:
 # https://github.com/git-lfs/git-lfs/issues/4546

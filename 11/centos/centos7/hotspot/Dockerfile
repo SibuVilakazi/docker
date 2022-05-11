@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11.0.13_8-jdk-centos7 as jre-build
+FROM eclipse-temurin:11.0.15_10-jdk-centos7 as jre-build
 
 # Generate smaller java runtime without unneeded files
 # for now we include the full module path to maintain compatibility
@@ -21,7 +21,7 @@ RUN yum install -y git curl freetype fontconfig unzip which && \
 
 ARG TARGETARCH
 ARG COMMIT_SHA
-ARG GIT_LFS_VERSION=3.0.2
+ARG GIT_LFS_VERSION=3.1.4
 
 # required for multi-arch support, revert to package cloud after:
 # https://github.com/git-lfs/git-lfs/issues/4546

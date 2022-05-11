@@ -1,5 +1,5 @@
 # escape=`
-FROM jenkins/openjdk:11-hotspot-windowsservercore-ltsc2019
+FROM eclipse-temurin:11.0.15_10-jdk-windowsservercore-1809
 
 ARG user=jenkins
 ARG http_port=8080
@@ -54,7 +54,7 @@ ENV JENKINS_UC https://updates.jenkins.io
 ENV JENKINS_UC_EXPERIMENTAL=https://updates.jenkins.io/experimental
 ENV JENKINS_INCREMENTALS_REPO_MIRROR=https://repo.jenkins-ci.org/incrementals
 
-ARG PLUGIN_CLI_VERSION=2.12.3
+ARG PLUGIN_CLI_VERSION=2.12.5
 ARG PLUGIN_CLI_URL=https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/${PLUGIN_CLI_VERSION}/jenkins-plugin-manager-${PLUGIN_CLI_VERSION}.jar
 RUN curl.exe -fsSL "$env:PLUGIN_CLI_URL" -o C:/ProgramData/Jenkins/jenkins-plugin-manager.jar
 
